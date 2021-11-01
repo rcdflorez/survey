@@ -1,143 +1,143 @@
-$theme-colors: (
-  "primary": blue,
-  "dark": #000000,
-);
-
+$theme-colors: ( "primary": blue, "dark": #000000, );
 @import "node_modules/bootstrap/scss/bootstrap";
-
 body {
-  padding-top: 56px;
-  background-color: lightgray;
+    padding-top: 56px;
+    background-color: lightgray;
 }
+
 .footer {
-  margin-top: 3rem;
+    margin-top: 3rem;
 }
+
 .navbar {
-  border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 }
 
 $border-color: #c4c4c4;
-
 .survey-container {
-  background-color: white;
-  div.q-row {
-    li {
-      color: #717171;
+    div.q-row:nth-child(even) {
+        background-color: #f6f6f6;
     }
-
-    div.col-5 {
-      padding: 0.5rem 0.5rem;
+    background-color: white;
+    div.q-row {
+        li {
+            color: #717171;
+        }
+        div.col-5 {
+            padding: 0.5rem 0.5rem;
+        }
+        div.radios-container {
+            height: 100%;
+        }
+        border-top: solid 1px $border-color;
+        border-left: solid 1px $border-color;
+        border-right: solid 1px $border-color;
+        div.radios-container div.col {
+            border-left: $border-color solid 1px;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        &.last {
+            border-bottom: solid 1px $border-color;
+            margin-bottom: 3rem;
+        }
     }
-    div.radios-container {
-      height: 100%;
+    input[type="radio"] {
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        appearance: none;
+        /* For iOS < 15 to remove gradient background */
+        background-color: #fff;
+        /* Not removed via appearance */
+        margin: 0;
+        font: inherit;
+        color: #bebfc3;
+        width: 1.5em;
+        height: 1.5em;
+        border: 0.015em solid #bebfc3;
+        border-radius: 50%;
+        transform: translateY(-0.075em);
+        display: grid;
+        place-content: center;
     }
-    border-top: solid 1px $border-color;
-    border-left: solid 1px $border-color;
-    border-right: solid 1px $border-color;
-    div.radios-container div.col {
-      border-left: $border-color solid 1px;
-      align-items: center;
-      display: flex;
-      justify-content: center;
+    input[type="radio"]::before {
+        content: "";
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        transform: scale(0);
+        transition: 120ms transform ease-in-out;
+        box-shadow: inset 1.25em 1.25em #2ec5ea;
     }
-    &.last {
-      border-bottom: solid 1px $border-color;
-      margin-bottom: 3rem;
+    input[type="radio"]:checked::before {
+        transform: scale(1);
     }
-  }
-
-  input[type="radio"] {
-    /* Add if not using autoprefixer */
-    -webkit-appearance: none;
-    appearance: none;
-    /* For iOS < 15 to remove gradient background */
-    background-color: #fff;
-    /* Not removed via appearance */
-    margin: 0;
-    font: inherit;
-    color: #bebfc3;
-    width: 1.5em;
-    height: 1.5em;
-    border: 0.015em solid #bebfc3;
-    border-radius: 50%;
-    transform: translateY(-0.075em);
-    display: grid;
-    place-content: center;
-  }
-  input[type="radio"]::before {
-    content: "";
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
-    box-shadow: inset 1.25em 1.25em #2ec5ea;
-  }
-  input[type="radio"]:checked::before {
-    transform: scale(1);
-  }
-  input[type="radio"]:focus {
-    outline: 0;
-    box-shadow: none;
-  }
-  ol {
-    list-style: none;
-    counter-reset: my-awesome-counter;
-    margin: 0;
-    padding: 0;
-  }
-  ol li {
-    counter-increment: my-awesome-counter;
-    text-align: left;
-  }
-  ol li::before {
-    content: counter(my-awesome-counter) ". ";
-    color: #717171;
-    margin-right: 10px;
-    margin-left: 10px;
-    font-size: 1.1rem;
-
-    float: left;
-    //margin-top: -4px;
-    height: 50px;
-  }
-  div.q-container {
-    border: solid 1px blue;
-  }
-
-  div.responses-container {
-    height: 100%;
-    border: solid 1px $border-color;
-    border-bottom: 0;
-    div.col {
-      border-left: solid 1px $border-color;
-      align-items: center;
-      display: flex;
-      justify-content: center;
+    input[type="radio"]:focus {
+        outline: 0;
+        box-shadow: none;
     }
-    div.col:first-child {
-      border-left: 0;
+    ol {
+        list-style: none;
+        counter-reset: my-awesome-counter;
+        margin: 0;
+        padding: 0;
     }
-  }
-
-  div.responses-container {
-    div.col {
-      padding: 1rem 0.5rem;
-      color: #717171;
+    ol li {
+        counter-increment: my-awesome-counter;
+        text-align: left;
     }
-  }
-  &.mobile {
-    color: #717171;
-    div.mbl-question {
-      div.col-12 {
-        padding-top: 1.5rem;
-      }
-      label {
-        padding: 0.5rem 1rem !important;
-      }
-      input {
-        margin-right: 1rem;
-      }
+    div.col-6 li {
+        line-height: 17px;
     }
-  }
+    ol li::before {
+        content: counter(my-awesome-counter) ". ";
+        color: #717171;
+        margin-right: 10px;
+        margin-left: 10px;
+        font-size: 0.9rem;
+        float: left;
+        //margin-top: -4px;
+        height: 50px;
+    }
+    div.q-container {
+        border: solid 1px blue;
+    }
+    div.responses-container {
+        height: 100%;
+        border: solid 1px $border-color;
+        border-bottom: 0;
+        div.col {
+            border-left: solid 1px $border-color;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            line-height: 16px;
+            font-size: 0.9rem;
+        }
+        div.col:first-child {
+            border-left: 0;
+        }
+    }
+    div.responses-container {
+        div.col {
+            padding: 1rem 0.5rem;
+            color: #717171;
+        }
+    }
+    &.mobile {
+        color: #717171;
+        div.mbl-question {
+            div.col-12 {
+                padding-top: 1.5rem;
+            }
+            label {
+                padding: 0.5rem 1rem !important;
+            }
+            input {
+                margin-right: 1rem;
+            }
+        }
+    }
+    font-size: 0.9rem;
 }
